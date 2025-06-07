@@ -24,6 +24,7 @@ public class Main {
                 valid = true;
             } catch (InputMismatchException e) {
                 System.out.println("Введите число");
+                sc.next();
             }
         }
         return num;
