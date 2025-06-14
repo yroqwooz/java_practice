@@ -29,6 +29,19 @@ public class MovieLibrary {
         return list;
     }
 
+    public void seedMovies() {
+        this.addMovie(new Movie("The Shawshank Redemption", "Frank Darabont", 1994, 9.3));
+        this.addMovie(new Movie("The Godfather", "Francis Ford Coppola", 1972, 9.2));
+        this.addMovie(new Movie("The Dark Knight", "Christopher Nolan", 2008, 9.0));
+        this.addMovie(new Movie("Pulp Fiction", "Quentin Tarantino", 1994, 8.9));
+        this.addMovie(new Movie("The Lord of the Rings: The Return of the King", "Peter Jackson", 2003, 8.9));
+        this.addMovie(new Movie("Inception", "Christopher Nolan", 2010, 8.8));
+        this.addMovie(new Movie("Fight Club", "David Fincher", 1999, 8.8));
+        this.addMovie(new Movie("Forrest Gump", "Robert Zemeckis", 1994, 8.8));
+        this.addMovie(new Movie("Interstellar", "Christopher Nolan", 2014, 8.7));
+        this.addMovie(new Movie("The Matrix", "Lana Wachowski", 1999, 8.7));
+    }
+
     public List<Movie> getMoviesAfterYear(int year) {
         List<Movie> list = new ArrayList<Movie>();
         for (Movie movie : movieList) {
@@ -64,4 +77,5 @@ public class MovieLibrary {
         list.sort(Comparator.comparing(Movie::getYear));
         return list;
     }
+
 }
