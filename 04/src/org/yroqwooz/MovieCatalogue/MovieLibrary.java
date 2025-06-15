@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class MovieLibrary {
-    private List<Movie> movieList;
+    private final List<Movie> movieList;
 
     public MovieLibrary() {
         movieList = new ArrayList<>();
@@ -15,6 +15,12 @@ public class MovieLibrary {
         movieList.add(movie);
     }
 
+    public void addMovies(List<Movie> movies) {
+        for (Movie movie : movies) {
+            movieList.add(movie);
+        }
+    }
+
     public List<Movie> getAllMovies() {
         return movieList;
     }
@@ -22,7 +28,7 @@ public class MovieLibrary {
     public List<Movie> getMoviesByDirector(String director) {
         List<Movie> list = new ArrayList<Movie>();
         for (Movie movie : movieList) {
-            if (movie.getDirector().equalsIgnoreCase(director)) {
+            if (movie.getDirector().toLowerCase().contains(director.toLowerCase())) {
                 list.add(movie);
             }
         }
@@ -78,4 +84,38 @@ public class MovieLibrary {
         return list;
     }
 
+    public List<Movie> getMoviesByTitle(String titlePart) {
+        List<Movie> list = new ArrayList<>();
+        for (Movie movie : movieList) {
+            if (movie.getTitle().toLowerCase().contains(titlePart.toLowerCase())) {
+                list.add(movie);
+            }
+        }
+        return list;
+    }
+
+    public List<Movie> getMoviesByYear(int year) {
+        List<Movie> list = new ArrayList<>();
+        for (Movie movie : movieList) {
+            if (movie.getYear() == year) {
+                list.add(movie);
+            }
+        }
+        return list;
+    }
+
+    public List<Movie> getMoviesByYear(int start, int end) {
+        if (start > end) {
+            System.out.println("Ошибка: начальный год не может быть больше конечного.");
+            return new ArrayList<>();
+        }
+
+        List<Movie> list = new ArrayList<>();
+        for (Movie movie : movieList) {
+            if (movie.getYear() >= start && movie.getYear() <= end) {
+                list.add(movie);
+            }
+        }
+        return list;
+    }
 }

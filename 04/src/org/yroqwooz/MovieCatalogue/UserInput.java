@@ -16,7 +16,7 @@ public class UserInput {
     }
 
     public static String inputString(Scanner sc, String prompt) {
-        System.out.println(prompt);
+        System.out.print(prompt);
         return sc.nextLine().trim();
     }
 
@@ -29,7 +29,5 @@ public class UserInput {
                 System.out.println("Введите корректное число");
             }
         }
-//        return sc.nextLine().trim();
     }
-
 }

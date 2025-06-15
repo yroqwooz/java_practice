@@ -1,13 +1,18 @@
 package org.yroqwooz.MovieCatalogue;
 
+
+
 import java.time.Year;
 import java.util.Scanner;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Movie {
     private String title;
     private String director;
     private int year;
     private double score;
+
+    public Movie() {}
 
     public Movie(String title, String director, int year, double score) {
         this.title = title;
@@ -44,6 +49,7 @@ public class Movie {
         return "Title: " + title + ", Director: " + director + ", Year: " + year + ", Score: " + score;
     }
 
+    @JsonIgnore
     public boolean isClassic() {
         return Year.now().getValue() - year > 25;
     }
