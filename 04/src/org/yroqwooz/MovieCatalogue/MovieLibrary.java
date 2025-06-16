@@ -120,7 +120,7 @@ public class MovieLibrary {
     }
 
     private Movie findMovie(String title) {
-
+        return new Movie();
     }
 
     public void toggleFavorite(Movie movie) {
