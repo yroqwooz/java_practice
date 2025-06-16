@@ -16,9 +16,7 @@ public class MovieLibrary {
     }
 
     public void addMovies(List<Movie> movies) {
-        for (Movie movie : movies) {
-            movieList.add(movie);
-        }
+        movieList.addAll(movies);
     }
 
     public List<Movie> getAllMovies() {
