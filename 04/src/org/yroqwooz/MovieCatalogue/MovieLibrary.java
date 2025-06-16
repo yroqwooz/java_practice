@@ -26,7 +26,7 @@ public class MovieLibrary {
     }
 
     public List<Movie> getMoviesByDirector(String director) {
-        List<Movie> list = new ArrayList<Movie>();
+        List<Movie> list = new ArrayList<>();
         for (Movie movie : movieList) {
             if (movie.getDirector().toLowerCase().contains(director.toLowerCase())) {
                 list.add(movie);
@@ -49,7 +49,7 @@ public class MovieLibrary {
     }
 
     public List<Movie> getMoviesAfterYear(int year) {
-        List<Movie> list = new ArrayList<Movie>();
+        List<Movie> list = new ArrayList<>();
         for (Movie movie : movieList) {
             if (movie.getYear() > year) {
                 list.add(movie);
@@ -59,7 +59,7 @@ public class MovieLibrary {
     }
 
     public List<Movie> getClassics() {
-        List<Movie> list = new ArrayList<Movie>();
+        List<Movie> list = new ArrayList<>();
         for (Movie movie : movieList) {
             if (movie.isClassic()) {
                 list.add(movie);
@@ -69,7 +69,7 @@ public class MovieLibrary {
     }
 
     public List<Movie> getHighRatedMovies(double minScore) {
-        List<Movie> list = new ArrayList<Movie>();
+        List<Movie> list = new ArrayList<>();
         for (Movie movie : movieList) {
             if (movie.getScore() > minScore) {
                 list.add(movie);
@@ -79,7 +79,7 @@ public class MovieLibrary {
     }
 
     public List<Movie> getMoviesSortedByYear() {
-        List<Movie> list = new ArrayList<Movie>(movieList);
+        List<Movie> list = new ArrayList<>(movieList);
         list.sort(Comparator.comparing(Movie::getYear));
         return list;
     }
