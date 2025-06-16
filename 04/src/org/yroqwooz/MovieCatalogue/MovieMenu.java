@@ -60,6 +60,8 @@ public class MovieMenu {
         actions.put("10", MovieMenu::handleMoviesBetweenYears);
         actions.put("11", MovieMenu::handleMoviesByYear);
         actions.put("12", MovieMenu::handleMovieByTitle);
+        actions.put("13", MovieMenu::handleShowFavorite);
+        actions.put("14", MovieMenu::handleToggleFavoriteByTitle);
     }
 
     private static void handleSeedMovies() {
@@ -123,6 +125,14 @@ public class MovieMenu {
 
     private static void handleMovieByTitle() {
         printList(lib.getMoviesByTitle(UserInput.inputString(sc, "Введите название фильма: ")));
+    }
+
+    private static void handleShowFavorite() {
+        printList(lib.getFavoriteMovies());
+    }
+
+    private static void handleToggleFavoriteByTitle() {
+        
     }
 
     private static void handleInvalidChoice() {

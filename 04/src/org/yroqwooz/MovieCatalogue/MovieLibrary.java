@@ -3,6 +3,7 @@ package org.yroqwooz.MovieCatalogue;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class MovieLibrary {
     private final List<Movie> movieList;
@@ -110,5 +111,19 @@ public class MovieLibrary {
             }
         }
         return list;
+    }
+
+    public List<Movie> getFavoriteMovies() {
+        return movieList.stream()
+                .filter(Movie::isFavourite)
+                .collect(Collectors.toList());
+    }
+
+    private Movie findMovie(String title) {
+
+    }
+
+    public void toggleFavorite(Movie movie) {
+        movie.setFavorite(!movie.isFavourite());
     }
 }
