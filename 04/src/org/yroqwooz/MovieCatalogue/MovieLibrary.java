@@ -104,15 +104,10 @@ public class MovieLibrary {
         return list;
     }
 
-    public List<Movie> getMoviesByYear(int start, int end) {
-        if (start > end) {
-            System.out.println("Ошибка: начальный год не может быть больше конечного.");
-            return new ArrayList<>();
-        }
-
+    public List<Movie> getMoviesByYearRange(int[] years) {
         List<Movie> list = new ArrayList<>();
         for (Movie movie : movieList) {
-            if (movie.getYear() >= start && movie.getYear() <= end) {
+            if (movie.getYear() >= years[0] && movie.getYear() <= years[1]) {
                 list.add(movie);
             }
         }

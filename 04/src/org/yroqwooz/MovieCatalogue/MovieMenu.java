@@ -51,6 +51,7 @@ public class MovieMenu {
         actions.put("6", MovieMenu::handleImportFromJson);
         actions.put("7", MovieMenu::handleExportToJson);
         actions.put("8", MovieMenu::handleSortedByYear);
+        actions.put("9", MovieMenu::handleMoviesBetweenYears);
     }
 
     private static void handleSeedMovies() {
@@ -96,6 +97,12 @@ public class MovieMenu {
 
     private static void handleSortedByYear() {
         printList(lib.getMoviesSortedByYear());
+    }
+
+    private static void handleMoviesBetweenYears() {
+        int[] year = UserInput.inputYearRange(sc);
+        List<Movie> list = lib.getMoviesByYearRange(year);
+        printList(list);
     }
 
     private static void handleInvalidChoice() {
